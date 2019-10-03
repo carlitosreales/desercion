@@ -56,7 +56,6 @@ public class PrediccionIndividual extends HttpServlet {
 		doGet(request, response);
 		String predictions = "";
 		PrintWriter out = response.getWriter();
-		
 		String semestre = request.getParameter("semestre");
 		String recurso = request.getParameter("recurso");
 		String jornada = request.getParameter("jornada");
@@ -65,7 +64,6 @@ public class PrediccionIndividual extends HttpServlet {
 		String estadoCarrera = request.getParameter("estadoCarrera");
 		int estrato = Integer.parseInt(request.getParameter("estrato"));
 		String estadoCivil = request.getParameter("estadoCivil");		
-		int puntajeIcfes = Integer.parseInt(request.getParameter("puntajeIcfes"));		
 		String estudianteForaneo = request.getParameter("estudianteForaneo");
 		String basesAcademicas = request.getParameter("basesAcademicas");
 		String orientacionProfesional = request.getParameter("orientacionProfesional");
@@ -108,7 +106,6 @@ public class PrediccionIndividual extends HttpServlet {
 		String nombredocumento = request.getParameter("nombredocumento");
 		String tipo_estudiante = request.getParameter("tipo_estudiante");
 		String perteneceCnamarca = request.getParameter("perteneceCnamarca");
-		int numeroApoyos = Integer.parseInt(request.getParameter("numeroApoyos"));
 		
 		
 		
@@ -119,7 +116,7 @@ public class PrediccionIndividual extends HttpServlet {
 		System.out.println("estadoCarrera: "+estadoCarrera);
 		System.out.println("estrato: "+estrato);
 		System.out.println("estadoCivil:"+estadoCivil);
-		System.out.println("puntajeIcfes: "+ puntajeIcfes);
+		
 		System.out.println("estudianteForaneo: "+estudianteForaneo);
 		System.out.println("basesAcademicas: "+basesAcademicas);
 		System.out.println("orientacionProfesional: "+orientacionProfesional);
@@ -159,7 +156,6 @@ public class PrediccionIndividual extends HttpServlet {
 		System.out.println("remisionPsicologica: "+remisionPsicologica);
 		System.out.println("situacion_carrera_estudiante: "+situacion_carrera_estudiante);
 		System.out.println("valoracionIncentivos: "+valoracionIncentivos);
-		System.out.println("numeroApoyos: "+numeroApoyos);
 		final String[] encabezado = {"Bases academicas",
 									"Orientacion Profesional",
 									"Cambio de programa academico",
@@ -191,7 +187,6 @@ public class PrediccionIndividual extends HttpServlet {
 									"Remision Finanzas Estudiantiles",
 									"Oferta Cultural y Deportiva (BU)",
 									"Valoracion Apoyo Especial (Facultad)",
-									"Numero de apoyos otorgados",
 									"PERDIDA DE ASIGNATURA",
 									"situacion_carrera_estudiante",
 									"nombredocumento",
@@ -204,7 +199,6 @@ public class PrediccionIndividual extends HttpServlet {
 									"semestre",
 									"pertenece_C/namarca",
 									"recurso",
-									"PuntajeGlobal_saber11",
 									"Desertor"
 									};
         final Character delimiter = ',';//Delimitador, por defecto es ","
@@ -248,7 +242,6 @@ public class PrediccionIndividual extends HttpServlet {
                 		 remisionFinanzasEstudiantiles,
                 		 ofertaCulturalDeportiva,
                 		 valoracionIncentivos,
-                		 numeroApoyos,
                 		 perdidaAsignatura,
                 		 situacion_carrera_estudiante,
                 		 nombredocumento,
@@ -261,7 +254,6 @@ public class PrediccionIndividual extends HttpServlet {
                 		 semestre,
                 		 perteneceCnamarca,
                 		 recurso,
-                		 puntajeIcfes,	
                 		 "?"
                 		));
             

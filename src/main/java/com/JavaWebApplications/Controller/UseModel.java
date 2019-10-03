@@ -23,7 +23,7 @@ public class UseModel {
 		Classifier cls = null;
 		try {
 			String rootPath="App_Modelos\\";
-			cls = (Classifier) weka.core.SerializationHelper.read(myPath+"finalmodelselecc.model");
+			cls = (Classifier) weka.core.SerializationHelper.read(myPath+"ModelSelectedVar.model");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -46,14 +46,10 @@ public class UseModel {
 			double[] predictionDistribution  =null;
 			try {    
 		        predictionDistribution = cls.distributionForInstance(originalTrain.instance(i)); 
-//		        System.out.println("i:" + (i + 1) + " " + "Predicción:"+ getPrediction(predictionDistribution[0]));
-		        if (i%2 == 0) {
+		        System.out.println(predictionDistribution.length);
 		        	//predictions += "<li> "+ ("i:" + (i + 1) + " " + "Probabilidad no desertor:"+ (predictionDistribution[0]*100)) +"%"+" </li>";
-		        	predictions += "<li class=\"list-group-item\">" + ("i:" + (i + 1) + " " + "Probabilidad no desertor:"+ (predictionDistribution[0]*100)) +"%"+" </li>";
-		        }
-		        else {
-		        	predictions += "<li class=\"list-group-item\">" + ("i:" + (i + 1) + " " + "Probabilidad no desertor:"+ (predictionDistribution[0]*100)) +"%"+" </li>";
-		        }
+		        predictions += "<li class=\"list-group-item\">" + ("i: " + (i + 1) + ") <br> " + "Probabilidad no desertor: <br> "+ (predictionDistribution[0]*100)) +"%"+" </li>  " +  " <li> Probabilidad desertor: <br>"+ (100 - predictionDistribution[0]*100) +"%"+ " </li>";
+		        
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -68,7 +64,7 @@ public class UseModel {
 		Classifier cls = null;
 		try {
 			String rootPath="App_Modelos\\";
-			cls = (Classifier) weka.core.SerializationHelper.read(myPath+"modelofinal.model");
+			cls = (Classifier) weka.core.SerializationHelper.read(myPath+"ModelFullVar.model");
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -92,13 +88,7 @@ public class UseModel {
 			try {    
 		        predictionDistribution = cls.distributionForInstance(originalTrain.instance(i)); 
 //		        System.out.println("i:" + (i + 1) + " " + "Predicción:"+ getPrediction(predictionDistribution[0]));
-		        if (i%2 == 0) {
-		        	//predictions += "<li> "+ ("i:" + (i + 1) + " " + "Probabilidad no desertor:"+ (predictionDistribution[0]*100)) +"%"+" </li>";
-		        	predictions += "<li class=\"list-group-item\">" + ( (i + 1) + ") " + "Probabilidad no desertor:"+ (predictionDistribution[0]*100)) +"%"+" </li>";
-		        }
-		        else {
-		        	predictions += "<li class=\"list-group-item\">" + ( (i + 1) + ") " + "Probabilidad no desertor:"+ (predictionDistribution[0]*100)) +"%"+" </li>";
-		        }
+		        predictions += "<li class=\"list-group-item\">" + ("i: " + (i + 1) + ") <br> " + "Probabilidad no desertor: <br> "+ (predictionDistribution[0]*100)) +"%"+" </li>  " +  " <li> Probabilidad desertor: <br>"+ (100 - predictionDistribution[0]*100) +"%"+ " </li>";
 			} catch (Exception e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
@@ -108,12 +98,11 @@ public class UseModel {
   }
 	
 	public  String useModelGroup() {
-		System.out.println("hola");
 		String predictions = "";
 		String myPath = getPath("windows");
 		Classifier cls = null;
 		try {
-			cls = (Classifier) weka.core.SerializationHelper.read(myPath+"modelofinal.model"); // local
+			cls = (Classifier) weka.core.SerializationHelper.read(myPath+"ModelFullVar.model"); // local
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
@@ -145,13 +134,7 @@ public class UseModel {
 		       System.out.println(predictionDistribution[0]);
 		        //System.out.println(trueClassLabel);
 		
-		       if (i%2 == 0) {
-		        	//predictions += "<li> "+ ("i:" + (i + 1) + " " + "Probabilidad no desertor:"+ (predictionDistribution[0]*100)) +"%"+" </li>";
-		        	predictions += "<li class=\"list-group-item\">" + ( (i + 1) + ") " + "Probabilidad no desertor:"+ (predictionDistribution[0]*100)) +"%"+" </li>";
-		        }
-		        else {
-		        	predictions += "<li class=\"list-group-item\">" + ( (i + 1) + ") " + "Probabilidad no desertor:"+ (predictionDistribution[0]*100)) +"%"+" </li>";
-		        }
+		       predictions += "<li class=\"list-group-item\">" + ("i: " + (i + 1) + ") <br> " + "Probabilidad no desertor: <br> "+ (predictionDistribution[0]*100)) +"%"+" </li>  " +  " <li> Probabilidad desertor: <br>"+ (100 - predictionDistribution[0]*100) +"%"+ " </li>";
 			} catch (Exception e) {
 				e.printStackTrace();
 			}

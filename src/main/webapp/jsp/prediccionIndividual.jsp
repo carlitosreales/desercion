@@ -271,8 +271,7 @@
 	      <option value="no">no</option>
 	    </select>
 	    
-	    <label for="numeroApoyos">Numero de apoyos otorgados</label>
-	    <input type="number" id="numeroApoyos" name="numeroApoyos" placeholder="ingresa numero de apoyos" required="required">
+	    
 	    <!--  <select id="numeroApoyos" name="numeroApoyos">
 	      <option value=" "></option>
 	      <option value="si">si</option>
@@ -390,11 +389,6 @@
 	      <option value="SISTEMAS DE AHORRO">SISTEMAS DE AHORRO</option>
 	    </select>
 	    
-	    
-	    
-	 
-	    <label for="PuntajeGlobal_saber11">puntaje icfes</label>
-	    <input type="number" id="puntajeIcfes" name="puntajeIcfes" placeholder="ingresa puntaje" required="required">
 	    <!--  <select id="puntajeIcfes" name="puntajeIcfes">
 	      <option value=" "></option>
 	      <option value="muyBajo">0-40</option>

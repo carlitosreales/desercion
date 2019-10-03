@@ -48,59 +48,32 @@ public class PrediccionIndividualSeleccion extends HttpServlet {
 				doGet(request, response);
 				String predictions = "";
 				PrintWriter out = response.getWriter();
-				String semestre = request.getParameter("semestre");
-				String recurso = request.getParameter("recurso");
-				int edad = Integer.parseInt(request.getParameter("edad"));				
-				String estadoCarrera = request.getParameter("estadoCarrera");
-				String estadoCivil = request.getParameter("estadoCivil");		
-				int puntajeIcfes = Integer.parseInt(request.getParameter("puntajeIcfes"));		
-				String estudianteForaneo = request.getParameter("estudianteForaneo");
-				String basesAcademicas = request.getParameter("basesAcademicas");
-				String habitosEstrategiasAprendizaje = request.getParameter("habitosEstrategiasAprendizaje");
 				String pagoMatricula = request.getParameter("pagoMatricula");
-				String recursosManutencion = request.getParameter("recursosManutencion");
-				String atencionPrimariaPAE = request.getParameter("atencionPrimariaPAE");
-				String tutoriaAcademicaDisciplinar = request.getParameter("tutoriaAcademicaDisciplinar");
-				String servicioPsicologia = request.getParameter("servicioPsicologia");
-				String perdidaAsignatura = request.getParameter("perdidaAsignatura");
-				String situacion_carrera_estudiante = request.getParameter("situacion_carrera_estudiante");
-				String tipo_estudiante = request.getParameter("tipo_estudiante");
-				String perteneceCnamarca = request.getParameter("perteneceCnamarca");
+				String aspectosEmocionales = request.getParameter("aspectosEmocionales");
+				String expetactivaCalidad = request.getParameter("expetactivaCalidad");
+				String procesosAdministrativosServicios = request.getParameter("procesosAdministrativosServicios");
+				String valoracionIncentivos = request.getParameter("valoracionIncentivos");
 				String nombredocumento = request.getParameter("nombredocumento");
-				System.out.println("semestre: "+semestre);
-				System.out.println("edad: "+edad);
-				System.out.println("estadoCarrera: "+estadoCarrera);
-				System.out.println("estadoCivil:"+estadoCivil);
-				System.out.println("puntajeIcfes: "+ puntajeIcfes);
-				System.out.println("estudianteForaneo: "+estudianteForaneo);
-				System.out.println("basesAcademicas: "+basesAcademicas);
-				System.out.println("habitosEstrategiasAprendizaje: "+habitosEstrategiasAprendizaje);
-				System.out.println("pagoMatricula: "+pagoMatricula);
-				System.out.println("recursosManutencion: "+recursosManutencion);
-				System.out.println("atencionPrimariaPAE: "+atencionPrimariaPAE);
-				System.out.println("tutoriaAcademicaDisciplinar: "+tutoriaAcademicaDisciplinar);
-				System.out.println("servicioPsicologia: "+servicioPsicologia);
+				String estadoCivil = request.getParameter("estadoCivil");
+				int edad = Integer.parseInt(request.getParameter("edad"));
+				String jornada = request.getParameter("jornada");
+				String semestre = request.getParameter("semestre");
+				String tipo_estudiante = request.getParameter("tipo_estudiante");
 				
-				
-				final String[] encabezado = {"Bases academicas",
-											"Habitos y estrategias de aprendizaje",
-											"Pago de matricula",
-											"Recursos de manutencion",
-											"Atencion Primaria PAE",
-											"Tutoria Academica",
-											"Servicio de Psicologia (BU)",
-											"PERDIDA DE ASIGNATURA",
-											"situacion_carrera_estudiante",
-											"nombredocumento",
-											"estado_civil",
-											"edad",
-											"estudiante",
-											"semestre",
-											"pertenece_C/namarca",
-											"recurso",
-											"PuntajeGlobal_saber11",
-											"Desertor"
-											};
+				final String[] encabezado = {
+						"Pago de matricula",
+						"Aspectos emocionales",
+						"Expectativa calidad academica",
+						"Procesos administrativos y servicios",
+						"Valoracion Apoyo Especial (Facultad)",
+						"nombredocumento",
+						"estado_civil",
+						"edad",
+						"jornada",
+						"tipo_estudiante",
+						"semestre",
+						"Desertor"
+						};
 		        final Character delimiter = ',';//Delimitador, por defecto es ","
 		        String archivoCSV = "C:\\CarpetaWeka\\archivocsvS.csv";//Nombre de archivo CSV
 
@@ -111,23 +84,17 @@ public class PrediccionIndividualSeleccion extends HttpServlet {
 
 		            
 		                csvPrinter.printRecord(Arrays.asList(
-		                		 basesAcademicas,
-		                		 habitosEstrategiasAprendizaje,
-		                		 pagoMatricula,
-		                		 recursosManutencion,
-		                		 atencionPrimariaPAE,
-		                		 tutoriaAcademicaDisciplinar,
-		                		 servicioPsicologia,
-		                		 perdidaAsignatura,
-		                		 situacion_carrera_estudiante,
-		                		 nombredocumento,
-		                		 estadoCivil,
-		                		 edad,
-		                		 tipo_estudiante,
-		                		 semestre,
-		                		 perteneceCnamarca,
-		                		 recurso,
-		                		 puntajeIcfes,	
+		                		pagoMatricula,
+		                		aspectosEmocionales,
+		                		expetactivaCalidad,
+		                		procesosAdministrativosServicios,
+		                		valoracionIncentivos,
+		                		nombredocumento,
+		                		estadoCivil,
+		                		edad,
+		                		jornada,
+		                		tipo_estudiante,
+		                		semestre,
 		                		 "?"
 		                		));
 		            
@@ -155,6 +122,7 @@ public class PrediccionIndividualSeleccion extends HttpServlet {
 			}
 			
 			public String usarModelo()  {
+				System.out.println("hola");
 				UseModel us = new UseModel ();
 				return us.useModelSeleccion();
 			}

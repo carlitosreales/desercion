@@ -32,39 +32,50 @@
 		<div class="row">
 			
 			<div class="col-md-12">
-						<div class="alert alert-success" role="alert">
-						  <h4 class="alert-heading"> En cuanto al modelo: </h4>
-						  <p> Con base en la mineria de datos, fue desarrollado un modelo para clasificar a los estudiantes en diferentes categorias,
-						   desertor, no desertor y posibles deserto.</p>
-						  <hr>
-						  <p class="mb-0">El modelo fue construido con un conjunto de datos demograficos de los estudiantes adicionando la variable de clase 
-						  (desertor, no desertor y posible desertor) para lograr entrenar y categorizar futuros datos que sean ingresados al sistema.  </p>
-						</div>
-							
+						
 						<div id="accordion">
+						 
+						 <!-- Explicacion leve de los algoritmos utilizados para la clasificacion -->
 						  <div class="card">
 						    <div class="card-header" id="headingOne">
 						      <h5 class="mb-0">
 						        <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
-						          Modelo 
+						          Mineria de datos: 
 						        </button>
 						      </h5>
 						    </div>
 						    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
 						      <div class="card-body">
-						        	<p> Para llevar a cabo este modelo piloto, fue necesario una base de datos de 789 registros correspondientes a los estudiantes de ingenieria de la Universidad El Bosque </p>
-									<p>Al ser un modelo predictivo, utilizamos el metodo de clasificacion, apoyandonos en dos algoritms diferentes:</p>
+						        	<p>  Para llevar a cabo este modelo piloto, fue necesario una base de datos de
+						        		 789 registros correspondientes a los estudiantes de ingenieria de la Universidad 
+						        		 El Bosque. <br>
+									     Al ser un modelo predictivo, utilizamos el metodo de clasificación, apoyandonos en dos 
+									     algoritms diferentes:
+									</p>
+									
 						      		<div class="col-md-6">
 								       	 <h2>Algoritmo de NaiveBayes</h2>
+								       	 <p> 
+								       	 	Teorema de Bayes: permite inferir la probabilidad de un secuceso, basado en el 
+								       	 	conocimiento que se tiene de sucesos relacionados. 
+								       	 	Dada la entrada de un nuevo escenario el clasificador, basado en los eventos pasados
+								       	 	determina a cual de las dos clase pertenece este nuevo registro.
+								       	 	
+								       	 </p>
 								        <img alt="" src="../images/NaiveBayes/ResultadosNaiveBayes.PNG">
 								    </div>
 								    <div class="col-md-6">
 								       		 <h2>Algoritmo de J48</h2>
+								       		 <p> 
+								       	 	Generacion de reglas, basado en arboles de decision.
+								       	 	
+								       	 	</p>
 								        	<img alt="" src="../images/j48-0.95/Resultados.PNG">
 								    </div>
 						      </div>
 						    </div>
 						  </div>
+						 
 						  <div class="card">
 						    <div class="card-header" id="headingTwo">
 						      <h5 class="mb-0">
@@ -75,11 +86,12 @@
 						    </div>
 						    <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
 						      <div class="card-body">
-						        <p> Gracias a los algoritmos de Correlacion y CfsSubsetEval que ofrece weka, podemos distinguir los atributos mas relacionados con la variable de clase (dercion) </p>
+						        <p> Gracias a los algoritmos de Correlación ( metodo de Ranker ) y CfsSubsetEval (metodo de BestFirst) que ofrece weka, podemos distinguir los atributos mas relacionados con la variable de clase (deserción) </p>
 				       			<img alt="" src="../images/Seleccion_Asociacion/Datosencomun.PNG">	
 						      </div>
 						    </div>
 						  </div>
+						 
 						  <div class="card">
 						    <div class="card-header" id="headingThree">
 						      <h5 class="mb-0">
@@ -95,20 +107,23 @@
 						      </div>
 						    </div>
 						  </div>
+						 
+						  <!-- Prediccion individual con seleccion de datos  -->
 						  <div class="card">
 						    <div class="card-header" id="headingFour">
 						      <h5 class="mb-0">
 						        <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
-						          Predición individual
+						          Predición individual basada en la selección de atributos
 						        </button>
 						      </h5>
 						    </div>
 						    <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordion">
 						      <div class="card-body">
-						        <a class="active" href="prediccionIndividualSeleccion.jsp">Prediccion individual Selección</a>
+						        <a class="active" href="prediccionIndividualSeleccion.jsp">Modelo</a>
 						      </div>
 						    </div>
 						  </div>
+						 	 
 						</div>
 			</div>
 		
